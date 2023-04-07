@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../screens2/login_screen.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class SignUpScreen1 extends StatefulWidget {
+  const SignUpScreen1({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<SignUpScreen1> createState() => _SignUpScreen1State();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _SignUpScreen1State extends State<SignUpScreen1> {
   bool passToggle = true;
   @override
   Widget build(BuildContext context) {
@@ -128,7 +128,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => LoginScreen()));
+                              builder: (context) => LoginScreen1()));
                     },
                     child: Text(
                       "Log In",

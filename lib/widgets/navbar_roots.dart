@@ -1,3 +1,4 @@
+import 'package:chat/Screens/HomeScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:chat/screens2/home_screen.dart';
@@ -18,11 +19,11 @@ class _NavBarRootsState extends State<NavBarRoots> {
     // home screen
     HomeScreen1(),
     // message screen
-    MessageScreen(),
+    HomeScreen(),
     // schedule screen
-    ScheduleScreen(),
+    ScheduleScreen1(),
     // setting screen
-    SettingScreen(),
+    SettingScreen1(),
   ];
   @override
   Widget build(BuildContext context) {

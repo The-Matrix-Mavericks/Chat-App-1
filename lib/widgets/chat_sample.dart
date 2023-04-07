@@ -1,8 +1,8 @@
 import 'package:custom_clippers/custom_clippers.dart';
 import 'package:flutter/material.dart';
 
-class ChatSample extends StatelessWidget {
-  const ChatSample({super.key});
+class ChatSample1 extends StatelessWidget {
+  const ChatSample1({super.key});
 
   @override
   Widget build(BuildContext context) {

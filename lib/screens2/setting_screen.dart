@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SettingScreen extends StatelessWidget {
-  const SettingScreen({super.key});
+class SettingScreen1 extends StatelessWidget {
+  const SettingScreen1({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../widgets/chat_sample.dart';
 
-class ChatScreen extends StatelessWidget {
-  const ChatScreen({super.key});
+class ChatScreen1 extends StatelessWidget {
+  const ChatScreen1({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +66,7 @@ class ChatScreen extends StatelessWidget {
       body: ListView.builder(
         itemCount: 10,
         padding: EdgeInsets.only(top: 20, left: 15, right: 15, bottom: 80),
-        itemBuilder: (context, index) => ChatSample(),
+        itemBuilder: (context, index) => ChatSample1(),
       ),
       bottomSheet: Container(
         height: 60,

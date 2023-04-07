@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../widgets/upcoming_schedule.dart';
 
-class ScheduleScreen extends StatefulWidget {
-  const ScheduleScreen({super.key});
+class ScheduleScreen1 extends StatefulWidget {
+  const ScheduleScreen1({super.key});
 
   @override
-  State<ScheduleScreen> createState() => _ScheduleScreenState();
+  State<ScheduleScreen1> createState() => _ScheduleScreenState();
 }
 
-class _ScheduleScreenState extends State<ScheduleScreen> {
+class _ScheduleScreenState extends State<ScheduleScreen1> {
   int _buttonIndex = 0;
   final _scheduleWidgets = [
     UpcomingScheduleScreen(),

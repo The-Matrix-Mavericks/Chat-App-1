@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'chat_screen.dart';
 
 // ignore: must_be_immutable
-class MessageScreen extends StatelessWidget {
+class MessageScreen1 extends StatelessWidget {
   // const MessageScreen({super.key});
 
   List imgs = [
@@ -167,7 +167,7 @@ class MessageScreen extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ChatScreen()));
+                              builder: (context) => ChatScreen1()));
                     },
                     leading: CircleAvatar(
                       radius: 30,

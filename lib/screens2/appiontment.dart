@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class AppointmentScreen extends StatelessWidget {
+class AppointmentScreen1 extends StatelessWidget {
   // const AppointmentScreen({super.key});
 
   List imgs = [

@@ -228,7 +228,7 @@ class _HomeScreen1State extends State<HomeScreen1> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => AppointmentScreen()));
+                          builder: (context) => AppointmentScreen1()));
                 },
                 child: Container(
                     margin: EdgeInsets.all(10),

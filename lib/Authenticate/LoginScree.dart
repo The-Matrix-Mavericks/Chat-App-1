@@ -1,5 +1,6 @@
 import 'package:chat/Authenticate/CreateAccount.dart';
 import 'package:chat/Authenticate/Methods.dart';
+import 'package:chat/widgets/navbar_roots.dart';
 import 'package:flutter/material.dart';
 
 import '../Screens/MenuScreen.dart';
@@ -34,38 +35,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: size.height / 20,
                   ),
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    width: size.width / 0.5,
-                    child: IconButton(
-                        icon: Icon(Icons.arrow_back_ios), onPressed: () {}),
-                  ),
-                  SizedBox(
-                    height: size.height / 50,
-                  ),
-                  Container(
-                    width: size.width / 1.1,
-                    child: Text(
-                      "Welcome",
-                      style: TextStyle(
-                        fontSize: 34,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    width: size.width / 1.1,
-                    child: Text(
-                      "Sign In to Continue!",
-                      style: TextStyle(
-                        color: Colors.grey[700],
-                        fontSize: 25,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: size.height / 10,
+                  // Container(
+                  //   alignment: Alignment.centerLeft,
+                  //   width: size.width / 0.5,
+                  //   child: IconButton(
+                  //       icon: Icon(Icons.arrow_back_ios), onPressed: () {}),
+                  // ),
+                  Padding(
+                    padding: EdgeInsets.all(12),
+                    child: Image.asset("images/logo.png"),
                   ),
                   Container(
                     width: size.width,
@@ -80,25 +58,67 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: field1(size, "password", Icons.lock, _password),
                     ),
                   ),
-                  SizedBox(
-                    height: size.height / 10,
-                  ),
-                  customButton(size),
-                  SizedBox(
-                    height: size.height / 40,
-                  ),
-                  GestureDetector(
-                    onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => CreateAccount())),
-                    child: Text(
-                      "Create Account",
-                      style: TextStyle(
-                        color: Colors.blue,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Material(
+                        color: Color(0xFF7165D6),
+                        borderRadius: BorderRadius.circular(10),
+                        // surfaceTintColor: Colors.black,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => NavBarRoots()));
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                                vertical: 15, horizontal: 40),
+                            child: Center(
+                              child: Text(
+                                "Sign In",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Don't have any account?",
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black54),
+                      ),
+                      TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => CreateAccount()));
+                          },
+                          child: Text(
+                            "Create Account",
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF7165D6)),
+                          ))
+                    ],
+                  ),
                 ],
               ),
             ),
@@ -119,8 +139,8 @@ class _LoginScreenState extends State<LoginScreen> {
               setState(() {
                 isLoading = false;
               });
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (_) => MyBottomNavigationBar()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => NavBarRoots()));
             } else {
               print("Login Failed");
               setState(() {

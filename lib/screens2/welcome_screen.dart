@@ -1,13 +1,15 @@
 // import 'dart:html';
 
 import 'package:flutter/material.dart';
+import '../Authenticate/CreateAccount.dart';
+import '../Authenticate/LoginScree.dart';
 import '../widgets/navbar_roots.dart';
 
 import 'login_screen.dart';
 // import 'package:medical_ui/main.dart';
 
-class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({super.key});
+class WelcomeScreen1 extends StatelessWidget {
+  const WelcomeScreen1({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,19 +23,19 @@ class WelcomeScreen extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => NavBarRoots()));
-                  },
-                  child: Text("SKIP",
-                      style: TextStyle(
-                        color: Color(0xFF7165D6),
-                        fontSize: 20,
-                      )),
-                )),
+            // Align(
+            //     alignment: Alignment.centerRight,
+            //     child: TextButton(
+            //       onPressed: () {
+            //         Navigator.push(context,
+            //             MaterialPageRoute(builder: (context) => NavBarRoots()));
+            //       },
+            //       child: Text("SKIP",
+            //           style: TextStyle(
+            //             color: Color(0xFF7165D6),
+            //             fontSize: 20,
+            //           )),
+            //     )),
             SizedBox(height: 50),
             Padding(
               padding: EdgeInsets.all(20),
@@ -91,8 +93,10 @@ class WelcomeScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   child: InkWell(
                     onTap: () {
-                      // Navigator.push(context, MaterialPageRoute(
-                      //   builder: (context)=>));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CreateAccount()));
                     },
                     child: Padding(
                       padding:

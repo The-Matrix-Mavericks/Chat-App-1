@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 
 import 'signup_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class LoginScreen1 extends StatefulWidget {
+  const LoginScreen1({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<LoginScreen1> createState() => _LoginScreen1State();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreen1State extends State<LoginScreen1> {
   bool passToggle = true;
   @override
   Widget build(BuildContext context) {
@@ -77,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       // Navigator.push(
                       //     context,
                       //     MaterialPageRoute(
-                      //         builder: (context) => LoginScreen()));
+                      //         builder: (context) => LoginScreen1()));
                     },
                     child: Padding(
                       padding:
@@ -114,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SignUpScreen()));
+                              builder: (context) => SignUpScreen1()));
                     },
                     child: Text(
                       "Create Account",
