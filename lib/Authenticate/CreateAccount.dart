@@ -1,8 +1,7 @@
 import 'package:chat/Authenticate/Methods.dart';
+import 'package:chat/screens2/welcome_screen.dart';
 import 'package:chat/widgets/navbar_roots.dart';
 import 'package:flutter/material.dart';
-
-import '../Screens/MenuScreen.dart';
 import 'LoginScree.dart';
 
 class CreateAccount extends StatefulWidget {
@@ -14,7 +13,7 @@ class _CreateAccountState extends State<CreateAccount> {
   final TextEditingController _name = TextEditingController();
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password1 = TextEditingController();
-  final TextEditingController _password2 = TextEditingController();
+  // final TextEditingController _password2 = TextEditingController();
   bool isLoading = false;
   bool _isHidden = true;
 
@@ -35,24 +34,29 @@ class _CreateAccountState extends State<CreateAccount> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: size.height / 80,
+                    height: size.height / 28,
                   ),
-                  // Container(
-                  //   alignment: Alignment.centerLeft,
-                  //   width: size.width / 0.5,
-                  //   child: IconButton(
-                  //       icon: Icon(
-                  //         Icons.arrow_back_ios,
-                  //         size: 29,
-                  //       ),
-                  //       onPressed: () {}),
-                  // ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    width: size.width / 0.5,
+                    child: IconButton(
+                        icon: Icon(
+                          Icons.arrow_back_ios,
+                          size: 29,
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => WelcomeScreen1()));
+                        }),
+                  ),
                   Padding(
                     padding: EdgeInsets.all(12),
                     child: Image.asset("images/logo.png"),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 18.0),
+                    padding: const EdgeInsets.symmetric(vertical: 15.0),
                     child: Container(
                       width: size.width,
                       alignment: Alignment.center,
@@ -64,22 +68,19 @@ class _CreateAccountState extends State<CreateAccount> {
                     alignment: Alignment.center,
                     child: field(size, "email", Icons.account_box, _email),
                   ),
-                  // Padding(
-                  //   padding: const EdgeInsets.symmetric(vertical: 18.0),
-                  //   child: Container(
-                  //     width: size.width,
-                  //     alignment: Alignment.center,
-                  //     child:
-                  //         field1(size, "Phone number", Icons.lock, _password1),
-                  //   ),
-                  // ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 18.0),
+                    padding: const EdgeInsets.symmetric(vertical: 15.0),
                     child: Container(
                       width: size.width,
                       alignment: Alignment.center,
-                      child: field1(size, "password", Icons.lock, _password1),
+                      child:
+                          field1(size, "Phone number", Icons.lock, _password1),
                     ),
+                  ),
+                  Container(
+                    width: size.width,
+                    alignment: Alignment.center,
+                    child: field1(size, "password", Icons.lock, _password1),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(10),
@@ -87,15 +88,11 @@ class _CreateAccountState extends State<CreateAccount> {
                       width: double.infinity,
                       child: Material(
                         color: Color(0xFF7165D6),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(30),
                         // surfaceTintColor: Colors.black,
                         child: InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => AccountCreated()));
-                          },
+                          onTap: () => createAccount(
+                              _name.text, _email.text, _password1.text),
                           child: Padding(
                             padding: EdgeInsets.symmetric(
                                 vertical: 15, horizontal: 40),
@@ -116,7 +113,7 @@ class _CreateAccountState extends State<CreateAccount> {
                   SizedBox(
                     height: 10,
                   ),
-                  Row(
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
@@ -165,7 +162,6 @@ class _CreateAccountState extends State<CreateAccount> {
               });
               Navigator.push(
                   context, MaterialPageRoute(builder: (_) => AccountCreated()));
-              print("Account Created Sucessfull");
             } else {
               print("Login Failed");
               setState(() {

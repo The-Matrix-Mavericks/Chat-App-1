@@ -1,5 +1,6 @@
 import 'package:chat/Authenticate/CreateAccount.dart';
 import 'package:chat/Authenticate/Methods.dart';
+import 'package:chat/screens2/welcome_screen.dart';
 import 'package:chat/widgets/navbar_roots.dart';
 import 'package:flutter/material.dart';
 
@@ -35,12 +36,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: size.height / 20,
                   ),
-                  // Container(
-                  //   alignment: Alignment.centerLeft,
-                  //   width: size.width / 0.5,
-                  //   child: IconButton(
-                  //       icon: Icon(Icons.arrow_back_ios), onPressed: () {}),
-                  // ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    width: size.width / 0.5,
+                    child: IconButton(
+                        icon: Icon(Icons.arrow_back_ios),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => WelcomeScreen1()));
+                        }),
+                  ),
                   Padding(
                     padding: EdgeInsets.all(12),
                     child: Image.asset("images/logo.png"),
@@ -64,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       width: double.infinity,
                       child: Material(
                         color: Color(0xFF7165D6),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(30),
                         // surfaceTintColor: Colors.black,
                         child: InkWell(
                           onTap: () {
@@ -93,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: 20,
                   ),
-                  Row(
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
