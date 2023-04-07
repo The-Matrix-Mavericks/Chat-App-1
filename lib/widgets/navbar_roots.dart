@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:medical_ui/screens/home_screen.dart';
-import 'package:medical_ui/screens/message_screen.dart';
-import 'package:medical_ui/screens/schedule_screen.dart';
-import 'package:medical_ui/screens/setting_screen.dart';
+import 'package:chat/screens2/home_screen.dart';
+import 'package:chat/screens2/message_screen.dart';
+import 'package:chat/screens2/schedule_screen.dart';
+import 'package:chat/screens2/setting_screen.dart';
 
 class NavBarRoots extends StatefulWidget {
   const NavBarRoots({super.key});
@@ -16,7 +16,7 @@ class _NavBarRootsState extends State<NavBarRoots> {
   int _selectIndex = 0;
   final _scresns = [
     // home screen
-    HomeScreen(),
+    HomeScreen1(),
     // message screen
     MessageScreen(),
     // schedule screen

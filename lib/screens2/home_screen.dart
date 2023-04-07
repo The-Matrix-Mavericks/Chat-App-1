@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:medical_ui/screens/appiontment.dart';
+import 'appiontment.dart';
 
 // ignore: must_be_immutable
-class HomeScreen extends StatefulWidget {
+class HomeScreen1 extends StatefulWidget {
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeScreen1> createState() => _HomeScreen1State();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  // const HomeScreen({super.key});
+class _HomeScreen1State extends State<HomeScreen1> {
+  // const HomeScreen1({super.key});
   List symptoms = [
     "Temprature",
     "Snuffle",

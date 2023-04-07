@@ -1,7 +1,7 @@
 // import 'dart:html';
 
 import 'package:flutter/material.dart';
-import 'package:medical_ui/widgets/navbar_roots.dart';
+import '../widgets/navbar_roots.dart';
 
 import 'login_screen.dart';
 // import 'package:medical_ui/main.dart';
