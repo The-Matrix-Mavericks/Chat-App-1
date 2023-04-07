@@ -19,5 +19,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-//this is comment from my side hey i am using flutter 
-// kjsadhfkadfl

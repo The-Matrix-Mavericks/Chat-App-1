@@ -4,10 +4,10 @@ import 'package:agora_uikit/agora_uikit.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-const appId = "5e3934beaecc401d842178141bdab742";
+const appId = "212663d5ef594531ac47467556ea3026";
 const token =
-    "007eJxTYLjYc7D5uekxzzgblrxb6lav5jtuXfCJ3/xORr6fccNPk98KDKapxpbGJkmpianJySYGhikWJkaG5haGJoZJKYlJ5iZGU3l0UxoCGRliih0YGKEQxOdiSMspLSlJLcrMS2dgAAAsRCFx";
-const channel = "fluttering";
+    "007eJxTYFi45X296lvRpPjXyhMfNDrMuzO/QPqBXHvfg4M1PO57dIsUGIwMjczMjFNMU9NMLU1MjQ0Tk03MTczMTU3NUhONDYzMns/XS2kIZGTomc7PxMgAgSA+K0NOYk5mCQMDAI7YH5E=";
+const channel = "lalit";
 
 void main() => runApp(const MaterialApp(home: videoCall()));
 
