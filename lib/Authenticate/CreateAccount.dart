@@ -12,8 +12,8 @@ class CreateAccount extends StatefulWidget {
 class _CreateAccountState extends State<CreateAccount> {
   final TextEditingController _name = TextEditingController();
   final TextEditingController _email = TextEditingController();
-  final TextEditingController _password1 = TextEditingController();
-  // final TextEditingController _password2 = TextEditingController();
+  final TextEditingController _password = TextEditingController();
+  final TextEditingController _number = TextEditingController();
   bool isLoading = false;
   bool _isHidden = true;
 
@@ -66,50 +66,25 @@ class _CreateAccountState extends State<CreateAccount> {
                   Container(
                     width: size.width,
                     alignment: Alignment.center,
-                    child: field(size, "email", Icons.account_box, _email),
+                    child: field(size, "email", Icons.email, _email),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 15.0),
                     child: Container(
                       width: size.width,
                       alignment: Alignment.center,
-                      child:
-                          field1(size, "Phone number", Icons.lock, _password1),
+                      child: field1(size, "Phone number", Icons.phone, _number),
                     ),
                   ),
                   Container(
                     width: size.width,
                     alignment: Alignment.center,
-                    child: field1(size, "password", Icons.lock, _password1),
+                    child: field1(size, "password", Icons.lock, _password),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: Material(
-                        color: Color(0xFF7165D6),
-                        borderRadius: BorderRadius.circular(30),
-                        // surfaceTintColor: Colors.black,
-                        child: InkWell(
-                          onTap: () => createAccount(
-                              _name.text, _email.text, _password1.text),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 15, horizontal: 40),
-                            child: Center(
-                              child: Text(
-                                "Create Account",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                  SizedBox(
+                    height: 10,
                   ),
+                  customButton(size),
                   SizedBox(
                     height: 10,
                   ),
@@ -150,12 +125,13 @@ class _CreateAccountState extends State<CreateAccount> {
       onTap: () {
         if (_name.text.isNotEmpty &&
             _email.text.isNotEmpty &&
-            _password1.text.isNotEmpty) {
+            _password.text.isNotEmpty) {
           setState(() {
             isLoading = true;
           });
 
-          createAccount(_name.text, _email.text, _password1.text).then((user) {
+          createAccount(_name.text, _email.text, _password.text, _number.text)
+              .then((user) {
             if (user != null) {
               setState(() {
                 isLoading = false;
@@ -173,22 +149,29 @@ class _CreateAccountState extends State<CreateAccount> {
           print("Please enter Fields");
         }
       },
-      child: Container(
-          height: size.height / 14,
-          width: size.width / 1.2,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5),
-            color: Colors.blue,
-          ),
-          alignment: Alignment.center,
-          child: Text(
-            "Create Account",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: SizedBox(
+          width: double.infinity,
+          child: Material(
+            color: Color(0xFF7165D6),
+            borderRadius: BorderRadius.circular(30),
+            // surfaceTintColor: Colors.black,
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+              child: Center(
+                child: Text(
+                  "Create Account",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
             ),
-          )),
+          ),
+        ),
+      ),
     );
   }
 

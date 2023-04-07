@@ -8,7 +8,7 @@ class MainPage extends StatelessWidget {
       title: 'My App',
       debugShowCheckedModeBanner: false,
       home: SplashScreen(
-        duration: 3,
+        duration: 2,
         screen: MainScreen(),
         nextScreen: Authenticate(),
       ),

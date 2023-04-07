@@ -1,3 +1,4 @@
+import 'package:chat/Authenticate/Methods.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -177,7 +178,7 @@ class SettingScreen1 extends StatelessWidget {
             //   height: 20,
             // ),
             ListTile(
-              onTap: () {},
+              onTap: () => logOut(context),
               leading: Container(
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(

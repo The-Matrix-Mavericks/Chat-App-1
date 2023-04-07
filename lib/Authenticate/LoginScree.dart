@@ -65,38 +65,34 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: field1(size, "password", Icons.lock, _password),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: Material(
-                        color: Color(0xFF7165D6),
-                        borderRadius: BorderRadius.circular(30),
-                        // surfaceTintColor: Colors.black,
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => NavBarRoots()));
-                          },
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 15, horizontal: 40),
-                            child: Center(
-                              child: Text(
-                                "Sign In",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  customButton(size),
+                  // Padding(
+                  //   padding: const EdgeInsets.all(10),
+                  //   child: SizedBox(
+                  //     width: double.infinity,
+                  //     child: Material(
+                  //       color: Color(0xFF7165D6),
+                  //       borderRadius: BorderRadius.circular(30),
+                  //       // surfaceTintColor: Colors.black,
+                  //       child: InkWell(
+                  //         onTap: () => logIn(_email.text, _password.text),
+                  //         child: Padding(
+                  //           padding: EdgeInsets.symmetric(
+                  //               vertical: 15, horizontal: 40),
+                  //           child: Center(
+                  //             child: Text(
+                  //               "Sign In",
+                  //               style: TextStyle(
+                  //                   color: Colors.white,
+                  //                   fontSize: 25,
+                  //                   fontWeight: FontWeight.bold),
+                  //             ),
+                  //           ),
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                   SizedBox(
                     height: 20,
                   ),
@@ -159,22 +155,29 @@ class _LoginScreenState extends State<LoginScreen> {
           print("Please fill form correctly");
         }
       },
-      child: Container(
-          height: size.height / 14,
-          width: size.width / 1.2,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5),
-            color: Colors.blue,
-          ),
-          alignment: Alignment.center,
-          child: Text(
-            "Login",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: SizedBox(
+          width: double.infinity,
+          child: Material(
+            color: Color(0xFF7165D6),
+            borderRadius: BorderRadius.circular(30),
+            // surfaceTintColor: Colors.black,
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+              child: Center(
+                child: Text(
+                  "Log In",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
             ),
-          )),
+          ),
+        ),
+      ),
     );
   }
 
