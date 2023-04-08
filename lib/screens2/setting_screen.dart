@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import '../showProfile.dart/ShowProfile.dart';
+
 class SettingScreen1 extends StatelessWidget {
   const SettingScreen1({super.key});
 
@@ -33,7 +35,7 @@ class SettingScreen1 extends StatelessWidget {
             ListTile(
               leading: CircleAvatar(
                 radius: 30,
-                backgroundImage: AssetImage("images/doc1.png"),
+                backgroundImage: AssetImage("images/botgif.jpg"),
               ),
               title: Text(
                 _auth.currentUser != null
@@ -44,13 +46,26 @@ class SettingScreen1 extends StatelessWidget {
                   fontSize: 25,
                 ),
               ),
-              subtitle: Text("Profile"),
+              subtitle: Text(
+                "User",
+                style: TextStyle(fontSize: 12),
+              ),
             ),
             Divider(
               height: 50,
             ),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => ShowProfile(
+                        email: _auth.currentUser != null
+                            ? "${_auth.currentUser!.email}"
+                            : "demo@gmail.com"),
+                  ),
+                );
+              },
               leading: Container(
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
