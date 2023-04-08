@@ -20,117 +20,121 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     // final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-    return Scaffold(
-      body: isLoading
-          ? Center(
-              child: Container(
-                height: size.height / 20,
-                width: size.height / 20,
-                child: CircularProgressIndicator(),
-              ),
-            )
-          : SingleChildScrollView(
-              child: Form(
-                key: formKey,
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: size.height / 20,
-                    ),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      width: size.width / 0.5,
-                      child: IconButton(
-                          icon: Icon(Icons.arrow_back_ios),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => WelcomeScreen1(),
-                              ),
-                            );
-                          }),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(12),
-                      child: Image.asset("images/logo.png"),
-                    ),
-                    Container(
-                      width: size.width,
-                      alignment: Alignment.center,
-                      child: field(size, "Enter Email Id", "Email Id",
-                          Icons.account_box, _email),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 18.0),
-                      child: Container(
-                        width: size.width,
-                        alignment: Alignment.center,
-                        child: field1(size, "Enter Password", "Password",
-                            Icons.lock, _password),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      home: Scaffold(
+        body: isLoading
+            ? Center(
+                child: Container(
+                  height: size.height / 20,
+                  width: size.height / 20,
+                  child: CircularProgressIndicator(),
+                ),
+              )
+            : SingleChildScrollView(
+                child: Form(
+                  key: formKey,
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: size.height / 20,
                       ),
-                    ),
-                    customButton(size),
-                    // Padding(
-                    //   padding: const EdgeInsets.all(10),
-                    //   child: SizedBox(
-                    //     width: double.infinity,
-                    //     child: Material(
-                    //       color: Color(0xFF7165D6),
-                    //       borderRadius: BorderRadius.circular(30),
-                    //       // surfaceTintColor: Colors.black,
-                    //       child: InkWell(
-                    //         onTap: () => logIn(_email.text, _password.text),
-                    //         child: Padding(
-                    //           padding: EdgeInsets.symmetric(
-                    //               vertical: 15, horizontal: 40),
-                    //           child: Center(
-                    //             child: Text(
-                    //               "Sign In",
-                    //               style: TextStyle(
-                    //                   color: Colors.white,
-                    //                   fontSize: 25,
-                    //                   fontWeight: FontWeight.bold),
-                    //             ),
-                    //           ),
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Don't have any account?",
-                          style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black54),
-                        ),
-                        TextButton(
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        width: size.width / 0.5,
+                        child: IconButton(
+                            icon: Icon(Icons.arrow_back_ios),
                             onPressed: () {
                               Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => CreateAccount()));
-                            },
-                            child: Text(
-                              "Create Account",
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFF7165D6)),
-                            ))
-                      ],
-                    ),
-                  ],
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => WelcomeScreen1(),
+                                ),
+                              );
+                            }),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(12),
+                        child: Image.asset("images/logo.png"),
+                      ),
+                      Container(
+                        width: size.width,
+                        alignment: Alignment.center,
+                        child: field(size, "Enter Email Id", "Email Id",
+                            Icons.account_box, _email),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 18.0),
+                        child: Container(
+                          width: size.width,
+                          alignment: Alignment.center,
+                          child: field1(size, "Enter Password", "Password",
+                              Icons.lock, _password),
+                        ),
+                      ),
+                      customButton(size),
+                      // Padding(
+                      //   padding: const EdgeInsets.all(10),
+                      //   child: SizedBox(
+                      //     width: double.infinity,
+                      //     child: Material(
+                      //       color: Color(0xFF7165D6),
+                      //       borderRadius: BorderRadius.circular(30),
+                      //       // surfaceTintColor: Colors.black,
+                      //       child: InkWell(
+                      //         onTap: () => logIn(_email.text, _password.text),
+                      //         child: Padding(
+                      //           padding: EdgeInsets.symmetric(
+                      //               vertical: 15, horizontal: 40),
+                      //           child: Center(
+                      //             child: Text(
+                      //               "Sign In",
+                      //               style: TextStyle(
+                      //                   color: Colors.white,
+                      //                   fontSize: 25,
+                      //                   fontWeight: FontWeight.bold),
+                      //             ),
+                      //           ),
+                      //         ),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Don't have any account?",
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black54),
+                          ),
+                          TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => CreateAccount()));
+                              },
+                              child: Text(
+                                "Create Account",
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xFF7165D6)),
+                              ))
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
+      ),
     );
   }
 

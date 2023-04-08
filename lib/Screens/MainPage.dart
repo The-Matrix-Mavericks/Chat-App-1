@@ -76,16 +76,14 @@ class MainScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            FlutterLogo(
-              size: 150.0,
-            ),
+            Image.asset("images/logo.png"),
             SizedBox(height: 50.0),
             Text(
-              'Welcome to Flutter App!',
+              'Welcome to TeleMed App!',
               style: TextStyle(
                 fontSize: 24.0,
                 fontWeight: FontWeight.bold,
-                color: Colors.blue,
+                color: Colors.black,
               ),
             ),
           ],

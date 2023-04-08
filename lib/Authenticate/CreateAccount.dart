@@ -23,110 +23,114 @@ class _CreateAccountState extends State<CreateAccount> {
     final size = MediaQuery.of(context).size;
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-    return Scaffold(
-      body: isLoading
-          ? Center(
-              child: Container(
-                height: size.height / 20,
-                width: size.height / 20,
-                child: CircularProgressIndicator(),
-              ),
-            )
-          : SingleChildScrollView(
-              child: Form(
-                key: formKey,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    SizedBox(
-                      height: size.height / 28,
-                    ),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      width: size.width / 0.5,
-                      child: IconButton(
-                          icon: Icon(
-                            Icons.arrow_back_ios,
-                            size: 29,
-                          ),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => WelcomeScreen1()));
-                          }),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(12),
-                      child: Image.asset("images/logo.png"),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 15.0),
-                      child: Container(
-                        width: size.width,
-                        alignment: Alignment.center,
-                        child: field(size, "Enter Full Name", "Full Name",
-                            Icons.account_box, _name),
+    return MaterialApp(
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: isLoading
+            ? Center(
+                child: Container(
+                  height: size.height / 20,
+                  width: size.height / 20,
+                  child: CircularProgressIndicator(),
+                ),
+              )
+            : SingleChildScrollView(
+                child: Form(
+                  key: formKey,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      SizedBox(
+                        height: size.height / 28,
                       ),
-                    ),
-                    Container(
-                      width: size.width,
-                      alignment: Alignment.center,
-                      child: fielde(size, "Enter email id", "Email Id",
-                          Icons.email, _email),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 15.0),
-                      child: Container(
-                        width: size.width,
-                        alignment: Alignment.center,
-                        child: fieldPhone(size, "Enter Phone number",
-                            "Phone Number", Icons.phone, _number),
-                      ),
-                    ),
-                    Container(
-                      width: size.width,
-                      alignment: Alignment.center,
-                      child: field1(size, "Enter Password", "Password",
-                          Icons.lock, _password),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    customButton(size),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Already have account?",
-                          style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black54),
-                        ),
-                        TextButton(
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        width: size.width / 0.5,
+                        child: IconButton(
+                            icon: Icon(
+                              Icons.arrow_back_ios,
+                              size: 29,
+                            ),
                             onPressed: () {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => LoginScreen()));
-                            },
-                            child: Text(
-                              "Log In",
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFF7165D6)),
-                            ))
-                      ],
-                    ),
-                  ],
+                                      builder: (context) => WelcomeScreen1()));
+                            }),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(12),
+                        child: Image.asset("images/logo.png"),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 15.0),
+                        child: Container(
+                          width: size.width,
+                          alignment: Alignment.center,
+                          child: field(size, "Enter Full Name", "Full Name",
+                              Icons.account_box, _name),
+                        ),
+                      ),
+                      Container(
+                        width: size.width,
+                        alignment: Alignment.center,
+                        child: fielde(size, "Enter email id", "Email Id",
+                            Icons.email, _email),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 15.0),
+                        child: Container(
+                          width: size.width,
+                          alignment: Alignment.center,
+                          child: fieldPhone(size, "Enter Phone number",
+                              "Phone Number", Icons.phone, _number),
+                        ),
+                      ),
+                      Container(
+                        width: size.width,
+                        alignment: Alignment.center,
+                        child: field1(size, "Enter Password", "Password",
+                            Icons.lock, _password),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      customButton(size),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Already have account?",
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black54),
+                          ),
+                          TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => LoginScreen()));
+                              },
+                              child: Text(
+                                "Log In",
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xFF7165D6)),
+                              ))
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
+      ),
     );
   }
 
