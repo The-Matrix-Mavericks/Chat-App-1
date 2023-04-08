@@ -6,6 +6,8 @@ import 'package:chat/screens2/message_screen.dart';
 import 'package:chat/screens2/schedule_screen.dart';
 import 'package:chat/screens2/setting_screen.dart';
 
+import '../chatting app/chat_home.dart';
+
 class NavBarRoots extends StatefulWidget {
   const NavBarRoots({super.key});
 
@@ -19,7 +21,8 @@ class _NavBarRootsState extends State<NavBarRoots> {
     // home screen
     HomeScreen1(),
     // message screen
-    HomeScreen(),
+    // HomeScreen(),
+    ChatHomeScreen(),
     // schedule screen
     ScheduleScreen1(),
     // setting screen
