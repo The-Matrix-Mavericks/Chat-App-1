@@ -1,6 +1,5 @@
 import 'package:chat/chatBot/bot.dart';
 import 'package:flutter/material.dart';
-import 'appiontment.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -28,7 +27,6 @@ class _HomeScreen1State extends State<HomeScreen1> {
   ];
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  FirebaseFirestore _firestore = FirebaseFirestore.instance;
   CollectionReference users = FirebaseFirestore.instance.collection('users');
 
   @override

@@ -1,7 +1,5 @@
-import 'package:chat/Authenticate/Methods.dart';
 import 'package:chat/Screens/ChatRoom.dart';
 import 'package:chat/group_chats/group_chat_screen.dart';
-import 'package:chat/screens2/welcome_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
