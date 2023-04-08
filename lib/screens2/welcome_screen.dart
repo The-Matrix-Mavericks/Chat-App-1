@@ -3,9 +3,6 @@
 import 'package:flutter/material.dart';
 import '../Authenticate/CreateAccount.dart';
 import '../Authenticate/LoginScree.dart';
-import '../widgets/navbar_roots.dart';
-
-import 'login_screen.dart';
 // import 'package:medical_ui/main.dart';
 
 class WelcomeScreen1 extends StatelessWidget {
