@@ -7,13 +7,8 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:uuid/uuid.dart';
-
-<<<<<<< HEAD
 import '../calling/voice.dart';
 
-=======
-// ignore: must_be_immutable
->>>>>>> b6068925f410c7e9ffac875d7cbc548e7f860991
 class ChatRoom extends StatelessWidget {
   final Map<String, dynamic> userMap;
   final String chatRoomId;
