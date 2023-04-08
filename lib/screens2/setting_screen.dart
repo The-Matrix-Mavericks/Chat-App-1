@@ -2,7 +2,6 @@ import 'package:chat/Authenticate/Methods.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SettingScreen1 extends StatelessWidget {
   const SettingScreen1({super.key});
@@ -10,8 +9,6 @@ class SettingScreen1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final FirebaseAuth _auth = FirebaseAuth.instance;
-    FirebaseFirestore _firestore = FirebaseFirestore.instance;
-    CollectionReference users = FirebaseFirestore.instance.collection('users');
 
     return SingleChildScrollView(
       child: Padding(
