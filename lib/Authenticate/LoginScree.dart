@@ -148,7 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
           logIn(_email.text, _password.text).then((user) {
             if (user != null) {
-              // ();
+              // (); // if user
               setState(() {
                 isLoading = false;
               });

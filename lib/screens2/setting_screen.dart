@@ -1,12 +1,18 @@
 import 'package:chat/Authenticate/Methods.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SettingScreen1 extends StatelessWidget {
   const SettingScreen1({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final FirebaseAuth _auth = FirebaseAuth.instance;
+    FirebaseFirestore _firestore = FirebaseFirestore.instance;
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+
     return SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.only(
@@ -33,7 +39,9 @@ class SettingScreen1 extends StatelessWidget {
                 backgroundImage: AssetImage("images/doc1.png"),
               ),
               title: Text(
-                "Dr. Doctor Name",
+                _auth.currentUser != null
+                    ? "Hello, ${_auth.currentUser!.displayName}"
+                    : "Hello, User",
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 25,
