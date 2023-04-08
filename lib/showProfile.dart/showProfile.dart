@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:firebase_storage/firebase_storage.dart';
 // import 'package:cloud_firestore/cloud_firestore.dart';
 // import '../Screens/ChatRoom.dart';
@@ -18,7 +18,6 @@ class _ShowProfileState extends State<ShowProfile> {
   Map<String, dynamic>? userMap;
   bool isLoading = false;
   // final FirebaseAuth _auth = FirebaseAuth.instance;
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   @override
   void initState() {
@@ -55,7 +54,9 @@ class _ShowProfileState extends State<ShowProfile> {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile Summary'),
+        centerTitle: true,
+        backgroundColor: Color(0xFF7165D6),
+        title: Center(child: Text('Profile Summary')),
       ),
       body: isLoading
           ? Container(
@@ -65,7 +66,7 @@ class _ShowProfileState extends State<ShowProfile> {
             )
           : Container(
               // height: 150,
-              // width: 200,
+              // width: 170,
               child: Column(
                 // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -95,32 +96,60 @@ class _ShowProfileState extends State<ShowProfile> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text(
-                            userMap?['name'],
-                            style: TextStyle(
-                                fontSize: 30, fontWeight: FontWeight.bold),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Name : ",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 22),
+                              ),
+                              Text(
+                                userMap?['name'],
+                                style: TextStyle(
+                                  fontSize: 17,
+                                ),
+                              ),
+                            ],
                           ),
-                          // Text(
-                          //   "designation",
-                          //   style: TextStyle(
-                          //     fontSize: 20,
-                          //   ),
-                          // ),
-                          // Text(
-                          //   userMap?['phone'],
-                          //   style: TextStyle(
-                          //     fontSize: 20,
-                          //   ),
-                          // ),
                           SizedBox(
                             height: size.height / 70,
                           ),
-                          Text(
-                            userMap?['email'],
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Phone Num. : ",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 22),
+                              ),
+                              Text(
+                                userMap?['number'],
+                                style: TextStyle(
+                                  fontSize: 17,
+                                ),
+                              ),
+                            ],
                           ),
+                          SizedBox(
+                            height: size.height / 70,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Email Id : ",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 22),
+                              ),
+                              Text(
+                                userMap?['email'],
+                                style: TextStyle(
+                                  fontSize: 17,
+                                ),
+                              ),
+                            ],
+                          )
                         ],
                       ),
                     ],
