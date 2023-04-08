@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:uuid/uuid.dart';
 
+import '../calling/voice.dart';
+
 class ChatRoom extends StatelessWidget {
   final Map<String, dynamic> userMap;
   final String chatRoomId;
@@ -138,14 +140,14 @@ class ChatRoom extends StatelessWidget {
                         width: size.width / 8.8,
                       ),
                       GestureDetector(
-                        // onTap: () {
-                        //   Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //       builder: (context) => voiceCall(),
-                        //     ),
-                        //   );
-                        // },
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => voiceCall(),
+                            ),
+                          );
+                        },
                         child: Icon(
                           Icons.call,
                           size: 30,
