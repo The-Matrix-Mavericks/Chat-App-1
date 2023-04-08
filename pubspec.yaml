@@ -46,6 +46,7 @@ dependencies:
   permission_handler: ^10.2.0
   agora_uikit: ^1.0.0
   custom_clippers: ^2.0.0
+  zego_uikit_prebuilt_call: ^3.1.1
 
 dev_dependencies:
   flutter_test:

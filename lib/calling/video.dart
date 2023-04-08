@@ -6,8 +6,8 @@ import 'package:permission_handler/permission_handler.dart';
 
 const appId = "212663d5ef594531ac47467556ea3026";
 const token =
-    "007eJxTYFi45X296lvRpPjXyhMfNDrMuzO/QPqBXHvfg4M1PO57dIsUGIwMjczMjFNMU9NMLU1MjQ0Tk03MTczMTU3NUhONDYzMns/XS2kIZGTomc7PxMgAgSA+K0NOYk5mCQMDAI7YH5E=";
-const channel = "lalit";
+    "007eJxTYLCfo/8jcKfzzMqyD/+Df16/qsP4Nc/W4PspnuPnbLYruJgoMBgZGpmZGaeYpqaZWpqYGhsmJpuYm5iZm5qapSYaGxiZPf1jkNIQyMiw+QwTIyMDBIL4HAx5qeUl+dmpeQwMABv4Ic8=";
+const channel = "newtoken";
 
 void main() => runApp(const MaterialApp(home: videoCall()));
 
@@ -159,7 +159,7 @@ class _MyAppState extends State<videoCall> {
       );
     } else {
       return const Text(
-        'Wait',
+        '',
         textAlign: TextAlign.center,
       );
     }
