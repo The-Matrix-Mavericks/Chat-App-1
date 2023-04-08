@@ -46,9 +46,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           icon: Icon(Icons.arrow_back_ios),
                           onPressed: () {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => WelcomeScreen1()));
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => WelcomeScreen1(),
+                              ),
+                            );
                           }),
                     ),
                     Padding(
@@ -190,7 +192,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget field(Size size, String hintText, String label, IconData icon,
       TextEditingController cont) {
     return Container(
-      height: size.height / 12,
+      height: size.height / 10,
       width: size.width / 1.1,
       child: TextFormField(
         controller: cont,
@@ -219,7 +221,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget field1(Size size, String hintText, String label, IconData icon,
       TextEditingController cont) {
     return Container(
-      height: size.height / 13,
+      height: size.height / 10,
       width: size.width / 1.1,
       child: TextFormField(
         controller: cont,
