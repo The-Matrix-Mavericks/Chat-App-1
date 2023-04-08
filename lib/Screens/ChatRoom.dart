@@ -328,78 +328,72 @@ class ChatRoom extends StatelessWidget {
             //     ],
             //   ),
             // ),
-          ],
-        ),
-      ),
-      bottomSheet: Container(
-        height: 60,
-        // width: MediaQuery.of(context).size.width,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
-            bottomLeft: Radius.circular(20),
-            bottomRight: Radius.circular(20),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black38,
-              spreadRadius: 2,
-              blurRadius: 10,
-            ),
-          ],
-        ),
-        child: Row(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  // padding: EdgeInsets.only(left: 0),
-                  child: IconButton(
-                    icon: Icon(Icons.photo, size: 27),
-                    color: Color(0xFF7165D6),
-                    onPressed: () => getImage(),
-                  ),
-                ),
-                Container(
-                  // padding: EdgeInsets.only(left: 0),
-                  child: IconButton(
-                    icon: Icon(Icons.emoji_emotions_outlined, size: 27),
-                    color: Color(0xFF7165D6),
-                    onPressed: () => getImage(),
-                  ),
-                ),
-              ],
-            ),
-            // SizedBox(
-            //   width: 2,
-            // ),
-
-            Padding(
-              padding: EdgeInsets.only(left: 0),
+            Container(
+              padding: EdgeInsets.fromLTRB(8, 0, 8, 5),
               child: Container(
-                alignment: Alignment.centerRight,
-                width: MediaQuery.of(context).size.width / 1.8,
-                child: TextFormField(
-                    decoration: InputDecoration(
-                  hintText: "Type somethig",
-                  border: InputBorder.none,
-                )),
-              ),
-            ),
-            Spacer(),
-            Padding(
-              padding: EdgeInsets.only(right: 10),
-              child: IconButton(
-                icon: Icon(
-                  Icons.send,
-                  size: 25,
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                height: size.height / 10,
+                width: size.width,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black38,
+                      spreadRadius: 2,
+                      blurRadius: 10,
+                    ),
+                  ],
                 ),
-                onPressed: onSendMessage,
-                color: Color(0xFF7165D6),
+                child: Row(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          // padding: EdgeInsets.only(left: 0),
+                          child: IconButton(
+                            icon: Icon(Icons.photo, size: 25),
+                            color: Color(0xFF7165D6),
+                            onPressed: () => getImage(),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(1),
+                      child: Container(
+                        alignment: Alignment.centerRight,
+                        width: size.width / 1.8,
+                        child: TextFormField(
+                          controller: _message,
+                          decoration: InputDecoration(
+                            hintText: "Type something",
+                            border: InputBorder.none,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Spacer(),
+                    Padding(
+                      padding: EdgeInsets.only(right: 10),
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.send,
+                          size: 25,
+                        ),
+                        onPressed: onSendMessage,
+                        color: Color(0xFF7165D6),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
