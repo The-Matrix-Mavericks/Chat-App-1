@@ -16,9 +16,13 @@ class _HomeScreenState extends State<ChatHomeScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF7165D6),
+        elevation: 1,
         centerTitle: true,
         leading: Icon(CupertinoIcons.chat_bubble_text_fill),
-        title: Text("We Chat"),
+        title: Text(
+          "Chat with your Doc",
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+        ),
         actions: [
           // IconButton(
           //   onPressed: () {
