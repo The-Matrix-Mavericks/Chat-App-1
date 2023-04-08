@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'appiontment.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 // ignore: must_be_immutable
 class HomeScreen1 extends StatefulWidget {
@@ -24,6 +26,10 @@ class _HomeScreen1State extends State<HomeScreen1> {
     "doc4.jpg",
   ];
 
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  CollectionReference users = FirebaseFirestore.instance.collection('users');
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -40,8 +46,10 @@ class _HomeScreen1State extends State<HomeScreen1> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Hello Peter",
-                  style: TextStyle(fontSize: 35, fontWeight: FontWeight.w500),
+                  _auth.currentUser != null
+                      ? "Hello, ${_auth.currentUser!.displayName}"
+                      : "Hello, User",
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
                 ),
                 CircleAvatar(
                   radius: 25,
