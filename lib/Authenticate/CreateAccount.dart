@@ -186,7 +186,7 @@ class _CreateAccountState extends State<CreateAccount> {
   Widget field(Size size, String hintText, String label, IconData icon,
       TextEditingController cont) {
     return Container(
-      height: size.height / 14,
+      height: size.height / 10,
       width: size.width / 1.1,
       child: TextFormField(
         controller: cont,
@@ -213,7 +213,7 @@ class _CreateAccountState extends State<CreateAccount> {
   Widget fielde(Size size, String hintText, String label, IconData icon,
       TextEditingController cont) {
     return Container(
-      height: size.height / 14,
+      height: size.height / 10,
       width: size.width / 1.1,
       child: TextFormField(
         controller: cont,
@@ -242,7 +242,7 @@ class _CreateAccountState extends State<CreateAccount> {
   Widget fieldPhone(Size size, String hintText, String label, IconData icon,
       TextEditingController cont) {
     return Container(
-      height: size.height / 14,
+      height: size.height / 10,
       width: size.width / 1.1,
       child: TextFormField(
         controller: cont,
@@ -269,7 +269,7 @@ class _CreateAccountState extends State<CreateAccount> {
   Widget field1(Size size, String hintText, String label, IconData icon,
       TextEditingController cont) {
     return Container(
-      height: size.height / 13,
+      height: size.height / 10,
       width: size.width / 1.1,
       child: TextFormField(
         controller: cont,
