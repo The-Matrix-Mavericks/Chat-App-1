@@ -147,7 +147,8 @@ class _CreateAccountState extends State<CreateAccount> {
               Navigator.push(
                   context, MaterialPageRoute(builder: (_) => AccountCreated()));
             } else {
-              print("Login Failed");
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => AccountCreationFailed()));
               setState(() {
                 isLoading = false;
               });
@@ -324,6 +325,26 @@ class AccountCreated extends StatelessWidget {
               context,
               MaterialPageRoute(builder: (context) => NavBarRoots()),
             );
+          },
+        ),
+      ],
+    );
+  }
+}
+
+class AccountCreationFailed extends StatelessWidget {
+  const AccountCreationFailed({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text('Account not Created'),
+      content: Text('Please check all details'),
+      actions: <Widget>[
+        TextButton(
+          child: Text('OK'),
+          onPressed: () {
+            Navigator.pop(context);
           },
         ),
       ],

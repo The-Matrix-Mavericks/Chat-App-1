@@ -4,8 +4,6 @@ import 'package:chat/screens2/welcome_screen.dart';
 import 'package:chat/widgets/navbar_roots.dart';
 import 'package:flutter/material.dart';
 
-import '../Screens/MenuScreen.dart';
-
 class LoginScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -21,7 +19,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+    // final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
       body: isLoading
           ? Center(
@@ -146,14 +144,15 @@ class _LoginScreenState extends State<LoginScreen> {
 
           logIn(_email.text, _password.text).then((user) {
             if (user != null) {
-              print("Login Sucessfull");
+              // ();
               setState(() {
                 isLoading = false;
               });
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => NavBarRoots()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => LoginSuccessful()));
             } else {
-              print("Login Failed");
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => LoginFailed()));
               setState(() {
                 isLoading = false;
               });
@@ -257,5 +256,48 @@ class _LoginScreenState extends State<LoginScreen> {
     setState(() {
       _isHidden = !_isHidden;
     });
+  }
+}
+
+class LoginSuccessful extends StatelessWidget {
+  const LoginSuccessful({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text('Login Successfully'),
+      content: Text('Login successfully.'),
+      actions: <Widget>[
+        TextButton(
+          child: Text('OK'),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => NavBarRoots()),
+            );
+          },
+        ),
+      ],
+    );
+  }
+}
+
+class LoginFailed extends StatelessWidget {
+  const LoginFailed({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text('Login Failed'),
+      content: Text('Login Failed Please Enter Valid Details.'),
+      actions: <Widget>[
+        TextButton(
+          child: Text('OK'),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ],
+    );
   }
 }
