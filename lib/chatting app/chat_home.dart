@@ -17,7 +17,7 @@ class _HomeScreenState extends State<ChatHomeScreen> {
       appBar: AppBar(
         backgroundColor: Color(0xFF7165D6),
         centerTitle: true,
-        leading: Icon(CupertinoIcons.home),
+        leading: Icon(CupertinoIcons.chat_bubble_text_fill),
         title: Text("We Chat"),
         actions: [
           // IconButton(

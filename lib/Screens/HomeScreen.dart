@@ -82,6 +82,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         appBar: AppBar(
           title: Center(child: Text("Chating Window")),
           backgroundColor: Color(0xFF7165D6),
+          leading: Icon(Icons.child_care_outlined),
           // actions: [
           //   IconButton(
           //     icon: Icon(
