@@ -246,76 +246,159 @@ class ChatRoom extends StatelessWidget {
             //                 )),
             //           ),
             //         ),
-            //         IconButton(
-            //           icon: Icon(Icons.send),
-            //           onPressed: onSendMessage,
-            //         ),
+            // IconButton(
+            //   icon: Icon(Icons.send),
+            //   onPressed: onSendMessage,
+            // ),
             //       ],
             //     ),
             //   ),
             // ),
-            Container(
-              height: 60,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
+            // Container(
+            //   height: 60,
+            //   width: MediaQuery.of(context).size.width,
+            //   decoration: BoxDecoration(
+            //     color: Colors.white,
+            //     borderRadius: BorderRadius.only(
+            //       topLeft: Radius.circular(20),
+            //       topRight: Radius.circular(20),
+            //       bottomLeft: Radius.circular(20),
+            //       bottomRight: Radius.circular(20),
+            //     ),
+            //     boxShadow: [
+            //       BoxShadow(
+            //         color: Colors.black38,
+            //         spreadRadius: 2,
+            //         blurRadius: 10,
+            //       ),
+            //     ],
+            //   ),
+            //   child: Row(
+            //     children: [
+            //       Row(
+            //         mainAxisAlignment: MainAxisAlignment.start,
+            //         children: [
+            //           Container(
+            //             // padding: EdgeInsets.only(left: 0),
+            //             child: IconButton(
+            //               icon: Icon(Icons.photo, size: 23),
+            //               color: Color(0xFF7165D6),
+            //               onPressed: () => getImage(),
+            //             ),
+            //           ),
+            //           Container(
+            //             // padding: EdgeInsets.only(left: 0),
+            //             child: IconButton(
+            //               icon: Icon(Icons.emoji_emotions_outlined, size: 23),
+            //               color: Color(0xFF7165D6),
+            //               onPressed: () => getImage(),
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //       // SizedBox(
+            //       //   width: 2,
+            //       // ),
+
+            //       Padding(
+            //         padding: EdgeInsets.only(left: 0),
+            //         child: Container(
+            //           alignment: Alignment.centerRight,
+            //           width: MediaQuery.of(context).size.width / 1.6,
+            //           child: TextFormField(
+            //               decoration: InputDecoration(
+            //             hintText: "Type somethig",
+            //             border: InputBorder.none,
+            //           )),
+            //         ),
+            //       ),
+            //       Spacer(),
+            //       Padding(
+            //         padding: EdgeInsets.only(right: 10),
+            //         child: IconButton(
+            //           icon: Icon(
+            //             Icons.send,
+            //             size: 25,
+            //           ),
+            //           onPressed: onSendMessage,
+            //           color: Color(0xFF7165D6),
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+          ],
+        ),
+      ),
+      bottomSheet: Container(
+        height: 60,
+        // width: MediaQuery.of(context).size.width,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+            bottomLeft: Radius.circular(20),
+            bottomRight: Radius.circular(20),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black38,
+              spreadRadius: 2,
+              blurRadius: 10,
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  // padding: EdgeInsets.only(left: 0),
+                  child: IconButton(
+                    icon: Icon(Icons.photo, size: 27),
+                    color: Color(0xFF7165D6),
+                    onPressed: () => getImage(),
+                  ),
                 ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black38,
-                    spreadRadius: 2,
-                    blurRadius: 10,
+                Container(
+                  // padding: EdgeInsets.only(left: 0),
+                  child: IconButton(
+                    icon: Icon(Icons.emoji_emotions_outlined, size: 27),
+                    color: Color(0xFF7165D6),
+                    onPressed: () => getImage(),
                   ),
-                ],
+                ),
+              ],
+            ),
+            // SizedBox(
+            //   width: 2,
+            // ),
+
+            Padding(
+              padding: EdgeInsets.only(left: 0),
+              child: Container(
+                alignment: Alignment.centerRight,
+                width: MediaQuery.of(context).size.width / 1.8,
+                child: TextFormField(
+                    decoration: InputDecoration(
+                  hintText: "Type somethig",
+                  border: InputBorder.none,
+                )),
               ),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 8),
-                    child: Icon(
-                      Icons.photo,
-                      color: Color(0xFF7165D6),
-                      size: 30,
-                    ),
-                  ),
-                  // SizedBox(
-                  //   width: 2,
-                  // ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 5),
-                    child: Icon(
-                      Icons.emoji_emotions_outlined,
-                      color: Color(0xFF7165D6),
-                      size: 30,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: Container(
-                      alignment: Alignment.centerRight,
-                      width: MediaQuery.of(context).size.width / 1.6,
-                      child: TextFormField(
-                          decoration: InputDecoration(
-                        hintText: "Type somethig",
-                        border: InputBorder.none,
-                      )),
-                    ),
-                  ),
-                  Spacer(),
-                  Padding(
-                    padding: EdgeInsets.only(right: 10),
-                    child: Icon(
-                      Icons.send,
-                      size: 30,
-                      color: Color(0xFF7165D6),
-                    ),
-                  ),
-                ],
+            ),
+            Spacer(),
+            Padding(
+              padding: EdgeInsets.only(right: 10),
+              child: IconButton(
+                icon: Icon(
+                  Icons.send,
+                  size: 25,
+                ),
+                onPressed: onSendMessage,
+                color: Color(0xFF7165D6),
               ),
             ),
           ],
