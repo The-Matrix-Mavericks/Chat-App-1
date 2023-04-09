@@ -77,8 +77,9 @@ class _ShowProfileState extends State<ShowProfile> {
                     children: [
                       CircleAvatar(
                         backgroundColor: Colors.grey,
-                        backgroundImage: NetworkImage(
-                            'https://static.vecteezy.com/system/resources/previews/000/566/866/original/vector-person-icon.jpg'),
+                        backgroundImage: NetworkImage(userMap?['url'] != null
+                            ? "${userMap?['url']}"
+                            : "https://imgs.search.brave.com/OMywKILzX0f3DNtkst-sUvxYARqoGLwLqh4pOHr58k8/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC4x/UXlzSk5lXzcydGtE/VHAtUHc4R0t3SGFI/YSZwaWQ9QXBp"),
                         radius: 70,
                       ),
                     ],

@@ -33,9 +33,38 @@ class SettingScreen1 extends StatelessWidget {
               height: 30,
             ),
             ListTile(
-              leading: CircleAvatar(
-                radius: 30,
-                backgroundImage: AssetImage("images/botgif.jpg"),
+              leading: SizedBox(
+                height: 250,
+                width: 100,
+                child: Stack(
+                  clipBehavior: Clip.none,
+                  // fit: StackFit.expand,
+                  children: [
+                    CircleAvatar(
+                      radius: 38,
+                      backgroundImage: NetworkImage(_auth
+                                  .currentUser!.photoURL !=
+                              null
+                          ? "${_auth.currentUser!.photoURL}"
+                          : "https://imgs.search.brave.com/OMywKILzX0f3DNtkst-sUvxYARqoGLwLqh4pOHr58k8/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC4x/UXlzSk5lXzcydGtE/VHAtUHc4R0t3SGFI/YSZwaWQ9QXBp"),
+                    ),
+                    Positioned(
+                        bottom: 0,
+                        right: -15,
+                        child: RawMaterialButton(
+                          onPressed: () {},
+                          elevation: 2.0,
+                          fillColor: Color(0xFFF5F6F9),
+                          child: Icon(
+                            Icons.add_a_photo_outlined,
+                            color: Colors.blue,
+                            size: 20,
+                          ),
+                          padding: EdgeInsets.all(1.0),
+                          shape: CircleBorder(),
+                        )),
+                  ],
+                ),
               ),
               title: Text(
                 _auth.currentUser != null

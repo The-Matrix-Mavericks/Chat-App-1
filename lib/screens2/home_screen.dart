@@ -51,8 +51,11 @@ class _HomeScreen1State extends State<HomeScreen1> {
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
                 ),
                 CircleAvatar(
-                  radius: 25,
-                  backgroundImage: AssetImage("images/person.webp"),
+                  radius: 28,
+                  backgroundImage: NetworkImage(_auth.currentUser!.photoURL !=
+                          null
+                      ? "${_auth.currentUser!.photoURL}"
+                      : "https://imgs.search.brave.com/OMywKILzX0f3DNtkst-sUvxYARqoGLwLqh4pOHr58k8/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC4x/UXlzSk5lXzcydGtE/VHAtUHc4R0t3SGFI/YSZwaWQ9QXBp"),
                 )
               ],
             ),

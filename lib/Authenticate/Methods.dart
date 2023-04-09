@@ -22,6 +22,8 @@ Future<User?> createAccount(
       "number": number,
       "status": "Unavalible",
       "uid": _auth.currentUser!.uid,
+      "url":
+          "https://imgs.search.brave.com/OMywKILzX0f3DNtkst-sUvxYARqoGLwLqh4pOHr58k8/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC4x/UXlzSk5lXzcydGtE/VHAtUHc4R0t3SGFI/YSZwaWQ9QXBp"
     });
 
     return userCrendetial.user;
