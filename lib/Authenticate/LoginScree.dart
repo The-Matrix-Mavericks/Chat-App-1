@@ -155,11 +155,11 @@ class _LoginScreenState extends State<LoginScreen> {
               Navigator.push(context,
                   MaterialPageRoute(builder: (_) => LoginSuccessful()));
             } else {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => LoginFailed()));
               setState(() {
                 isLoading = false;
               });
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => LoginFailed()));
             }
           });
         } else {
