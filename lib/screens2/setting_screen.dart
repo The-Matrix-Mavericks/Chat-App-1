@@ -1,14 +1,105 @@
+import 'dart:io';
 import 'package:chat/Authenticate/Methods.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:chat/showProfile.dart/ShowProfile.dart';
+import 'package:uuid/uuid.dart';
 
-import '../showProfile.dart/ShowProfile.dart';
+class SettingScreen1 extends StatefulWidget {
+  @override
+  State<SettingScreen1> createState() => _SettingScreen1State();
+}
 
-class SettingScreen1 extends StatelessWidget {
-  const SettingScreen1({super.key});
+class _SettingScreen1State extends State<SettingScreen1> {
+  // const SettingScreen1({super.key});
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  File? imageFile;
+
+  Future getImage() async {
+    ImagePicker _picker = ImagePicker();
+    await _picker.pickImage(source: ImageSource.gallery).then(
+      (xFile) {
+        if (xFile != null) {
+          imageFile = File(xFile.path);
+          uploadImage();
+        }
+      },
+    );
+  }
+
+  Future uploadImage() async {
+    String fileName = Uuid().v1();
+    int status = 1;
+
+    var ref =
+        FirebaseStorage.instance.ref().child('images').child("$fileName.jpg");
+
+    var uploadTask = await ref.putFile(imageFile!).catchError(
+      (error) async {
+        await _firestore
+            .collection('users')
+            .doc(_auth.currentUser!.uid)
+            .collection('url')
+            .doc(fileName)
+            .delete();
+        status = 0;
+      },
+    );
+
+    if (status == 1) {
+      String imageUrl = await uploadTask.ref.getDownloadURL();
+      await _firestore
+          .collection('users')
+          .doc(_auth.currentUser!.uid)
+          .update({"url": imageUrl});
+
+      print(imageUrl);
+    }
+  }
 
   @override
+  Map<String, dynamic>? userMap;
+
+  bool isLoading = false;
+
+  // final FirebaseAuth _auth = FirebaseAuth.instance;
+  void initState() {
+    super.initState();
+    _setMessage();
+  }
+
+  void _setMessage() {
+    FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+    setState(
+      () {
+        isLoading = true;
+      },
+    );
+    _firestore
+        .collection('users')
+        .where("uid", isEqualTo: _auth.currentUser!.uid)
+        .get()
+        .then(
+      (value) {
+        setState(
+          () {
+            userMap = value.docs[0].data();
+            isLoading = false;
+          },
+        );
+        // print(userMap);
+      },
+    );
+  }
+
   Widget build(BuildContext context) {
     final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -42,17 +133,17 @@ class SettingScreen1 extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 38,
-                      backgroundImage: NetworkImage(_auth
-                                  .currentUser!.photoURL !=
-                              null
-                          ? "${_auth.currentUser!.photoURL}"
-                          : "https://imgs.search.brave.com/OMywKILzX0f3DNtkst-sUvxYARqoGLwLqh4pOHr58k8/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC4x/UXlzSk5lXzcydGtE/VHAtUHc4R0t3SGFI/YSZwaWQ9QXBp"),
+                      backgroundImage: NetworkImage(userMap?['url'] != null
+                          ? "${userMap?['url']}"
+                          : "https://imgs.search.brave.com/05TBeNcAKK_r3R0LB3pKtpxtWDXWh8ivakrk0aYd5_I/rs:fit:322:294:1/g:ce/aHR0cHM6Ly9zdGVl/bWl0aW1hZ2VzLmNv/bS9EUW1XQW9lVXBR/RFRaaUNoSjUxTFRG/U0NBMndWcUEybWpZ/WlVUWE5teldVS1pO/Qi9kb2N1Ym90Lmdp/Zg.gif"),
                     ),
                     Positioned(
                         bottom: 0,
                         right: -15,
                         child: RawMaterialButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            getImage();
+                          },
                           elevation: 2.0,
                           fillColor: Color(0xFFF5F6F9),
                           child: Icon(
