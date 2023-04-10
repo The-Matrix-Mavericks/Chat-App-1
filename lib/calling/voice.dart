@@ -94,9 +94,9 @@ class _MyAppState extends State<voiceCall> {
     String statusText;
 
     if (!_isJoined)
-      statusText = 'Call';
+      statusText = 'Calling';
     else if (_remoteUid == null)
-      statusText = 'Waiting for a remote user to join...';
+      statusText = 'Waiting for a  user to join...';
     else
       statusText = 'Calling With --> ${_auth.currentUser!.displayName}';
 
