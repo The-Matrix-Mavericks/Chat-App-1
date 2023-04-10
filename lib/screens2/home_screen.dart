@@ -1,4 +1,5 @@
 import 'package:chat/chatBot/bot.dart';
+import 'package:chat/form/form.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -66,6 +67,7 @@ class _HomeScreen1State extends State<HomeScreen1> {
   }
 
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       padding: EdgeInsets.only(top: 40),
       child: Column(
@@ -103,56 +105,8 @@ class _HomeScreen1State extends State<HomeScreen1> {
               InkWell(
                 onTap: () {},
                 child: Container(
-                  padding: EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                      color: Color(0xFF7165D6),
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 6,
-                            spreadRadius: 4)
-                      ]),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          padding: EdgeInsets.all(3),
-                          decoration: BoxDecoration(
-                              color: Colors.white, shape: BoxShape.circle),
-                          child: Icon(
-                            Icons.add,
-                            color: Color(0xFF7165D6),
-                            size: 35,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        Text(
-                          "Clinic Visit",
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          "Make an appointment",
-                          style: TextStyle(
-                            // fontSize: 18,
-                            color: Colors.white54,
-                            // fontWeight: FontWeight.w500
-                          ),
-                        ),
-                      ]),
-                ),
-              ),
-              InkWell(
-                onTap: () {},
-                child: Container(
+                  height: size.height / 4.4,
+                  width: size.width / 2.2,
                   padding: EdgeInsets.all(20),
                   decoration: BoxDecoration(
                       color: Colors.white,
@@ -177,7 +131,7 @@ class _HomeScreen1State extends State<HomeScreen1> {
                           ),
                         ),
                         SizedBox(
-                          height: 30,
+                          height: 20,
                         ),
                         Text(
                           "Home Visit",
@@ -194,6 +148,65 @@ class _HomeScreen1State extends State<HomeScreen1> {
                           style: TextStyle(
                             // fontSize: 18,
                             color: Colors.black54,
+                            // fontWeight: FontWeight.w500
+                          ),
+                        ),
+                      ]),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Medicalform(),
+                    ),
+                  );
+                },
+                child: Container(
+                  height: size.height / 4.4,
+                  width: size.width / 2.2,
+                  padding: EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                      color: Color(0xFF7165D6),
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 6,
+                            spreadRadius: 4)
+                      ]),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(3),
+                          decoration: BoxDecoration(
+                              color: Colors.white, shape: BoxShape.circle),
+                          child: Icon(
+                            Icons.add,
+                            color: Color(0xFF7165D6),
+                            size: 35,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          "Clinic Visit",
+                          style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "Make an appointment",
+                          style: TextStyle(
+                            // fontSize: 18,
+                            color: Colors.white54,
                             // fontWeight: FontWeight.w500
                           ),
                         ),

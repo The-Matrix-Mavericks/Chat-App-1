@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:chat/Authenticate/Methods.dart';
+import 'package:chat/form/form.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -263,7 +264,14 @@ class _SettingScreen1State extends State<SettingScreen1> {
               height: 20,
             ),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => Medicalform(),
+                  ),
+                );
+              },
               leading: Container(
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
