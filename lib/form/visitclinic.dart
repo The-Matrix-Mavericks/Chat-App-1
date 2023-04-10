@@ -31,25 +31,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   // int _counter = 0;
 
-  final List<String> _gender = ['Male', 'Felmale', 'Other'];
-  var _fromGender = 'Male';
-  final List<String> _injury = ['Yes', 'No'];
-  var _fromInjury = 'Yes';
-  // int lines = 4;
-
-  final _genderController = TextEditingController();
-  final _ageController = TextEditingController();
-  final _heightController = TextEditingController();
-  final _bmiController = TextEditingController();
-  final _weightController = TextEditingController();
-  final _currMCController = TextEditingController();
-  final _currMCController1 = TextEditingController();
-  final _currMCController2 = TextEditingController();
-  final _currMCController3 = TextEditingController();
-  final _currMCController4 = TextEditingController();
-  final _currMCController5 = TextEditingController();
-  final _surgController = TextEditingController();
-  final _medicInsController = TextEditingController();
   DateTime? _visitDate;
   TimeOfDay? _startTime;
   TimeOfDay? _endTime;
