@@ -419,7 +419,7 @@ class ChatRoom extends StatelessWidget {
             decoration: BoxDecoration(
               color: map['sendby'] == _auth.currentUser!.displayName
                   ? Color(0xFF7165D6)
-                  : Color(0xFFE1E1E2),
+                  : Colors.green.shade100,
             ),
             child: Column(
               children: [
