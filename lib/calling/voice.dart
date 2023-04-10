@@ -3,9 +3,10 @@ import 'package:chat/Screens/ChatRoom.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 
-const String appId = "126b987bcaab4d5395e2e0a9ee8df9a6";
+const String appId = "21700f337dbf41b9a412469cccc8b475";
 
 void main() => runApp(const MaterialApp(home: voiceCall()));
 
@@ -17,10 +18,11 @@ class voiceCall extends StatefulWidget {
 }
 
 class _MyAppState extends State<voiceCall> {
-  String channelName = "name";
+  String channelName = "brother";
   String token =
-      "007eJxTYJjkdyFtNnvnhV6Z87wBf/6a6K9fYdHG6P7mrXdK+pmtk3YoMBgamSVZWpgnJScmJpmkmBpbmqYapRokWqamWqSkWSaaqXIapjQEMjK0tTIxMTJAIIjPwpCXmJvKwAAAaRQfFQ==";
+      "007eJxTYHC4rz7z7t5dlnUbA1hqefptrjtIGrsUJz9VsRAXtzaZL6zAYGRobmCQZmxsnpKUZmKYZJloYmhkYmaZDAQWSSbmpg2rjFMaAhkZunTfMDBCIYjPzpBUlF+SkVrEwAAAoIEdJA==";
 
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   int uid = 0; // uid of the local user
 
   int? _remoteUid; // uid of the remote user
@@ -39,33 +41,43 @@ class _MyAppState extends State<voiceCall> {
           appBar: AppBar(
             title: const Text('Voice Calling'),
           ),
-          body: ListView(
+          body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-            children: [
-              // Status text
-              Container(height: 40, child: Center(child: _status())),
-              // Button Row
-              Padding(
-                padding: const EdgeInsets.only(top: 600),
-                child: Row(
-                  children: <Widget>[
-                    // Expanded(
-                    //   child: ElevatedButton(
-                    //     child: const Text("Join"),
-                    //     onPressed: () => {join()},
-                    //   ),
-                    // ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: ElevatedButton(
-                        child: const Text("Leave"),
-                        onPressed: () => {leave()},
-                      ),
-                    ),
-                  ],
+            child: Row(
+              children: [
+                // Status text
+                Container(height: 60, child: Center(child: _status())),
+                // Container(height: 6, child: Center(child: _status())),
+                // Button Row
+                CircleAvatar(
+                  radius: 28,
+                  backgroundImage: NetworkImage(_auth.currentUser != null
+                      ? "$_auth.currentUser.PhotoUrl"
+                      : "https://imgs.search.brave.com/05TBeNcAKK_r3R0LB3pKtpxtWDXWh8ivakrk0aYd5_I/rs:fit:322:294:1/g:ce/aHR0cHM6Ly9zdGVl/bWl0aW1hZ2VzLmNv/bS9EUW1XQW9lVXBR/RFRaaUNoSjUxTFRG/U0NBMndWcUEybWpZ/WlVUWE5teldVS1pO/Qi9kb2N1Ym90Lmdp/Zg.gif"),
                 ),
-              ),
-            ],
+                Container(
+                  height: 1200,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      // Expanded(
+                      //   child: ElevatedButton(
+                      //     child: const Text("Join"),
+                      //     onPressed: () => {join()},
+                      //   ),
+                      // ),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: ElevatedButton(
+                          child: const Text("Leave"),
+                          onPressed: () => {leave()},
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           )),
     );
   }
@@ -78,10 +90,19 @@ class _MyAppState extends State<voiceCall> {
     else if (_remoteUid == null)
       statusText = 'Waiting for a remote user to join...';
     else
-      statusText = 'Connected to remote user, uid:$_remoteUid';
+      statusText = 'Calling With --> ${_auth.currentUser!.displayName}';
 
-    return Text(
-      statusText,
+    return Padding(
+      padding: const EdgeInsets.only(top: 30),
+      child: Column(
+        children: [
+          Text(
+            statusText,
+            style: TextStyle(fontSize: 25),
+          ),
+          Text("data")
+        ],
+      ),
     );
   }
 
@@ -157,8 +178,10 @@ class _MyAppState extends State<voiceCall> {
   @override
   void dispose() async {
     await agoraEngine.leaveChannel();
-
     super.dispose();
+    agoraEngine.disableAudio();
+    agoraEngine.disableAudioSpectrumMonitor();
+    agoraEngine.stopDirectCdnStreaming();
   }
 
   showMessage(String message) {

@@ -4,10 +4,10 @@ import 'package:agora_uikit/agora_uikit.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-const appId = "212663d5ef594531ac47467556ea3026";
+const appId = "21700f337dbf41b9a412469cccc8b475";
 const token =
-    "007eJxTYLCfo/8jcKfzzMqyD/+Df16/qsP4Nc/W4PspnuPnbLYruJgoMBgZGpmZGaeYpqaZWpqYGhsmJpuYm5iZm5qapSYaGxiZPf1jkNIQyMiw+QwTIyMDBIL4HAx5qeUl+dmpeQwMABv4Ic8=";
-const channel = "newtoken";
+    "007eJxTYHC4rz7z7t5dlnUbA1hqefptrjtIGrsUJz9VsRAXtzaZL6zAYGRobmCQZmxsnpKUZmKYZJloYmhkYmaZDAQWSSbmpg2rjFMaAhkZunTfMDBCIYjPzpBUlF+SkVrEwAAAoIEdJA==";
+const channel = "brother";
 
 void main() => runApp(const MaterialApp(home: videoCall()));
 
@@ -26,6 +26,10 @@ class _MyAppState extends State<videoCall> {
   @override
   void initState() {
     super.initState();
+    // _engine.enableAudio();
+    // _engine.destroyCustomEncodedVideoTrack(0);
+    // _engine.stopDirectCdnStreaming();
+    _engine.enableVideo();
     initAgora();
   }
 
@@ -134,12 +138,23 @@ class _MyAppState extends State<videoCall> {
               AgoraVideoButtons(
                 client: _client,
                 enabledButtons: const [
-                  BuiltInButtons.callEnd,
-                  BuiltInButtons.toggleCamera,
+                  // BuiltInButtons.callEnd,
+                  // BuiltInButtons.toggleCamera,
+
                   BuiltInButtons.toggleMic,
                   BuiltInButtons.switchCamera,
                 ],
-              )
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    _engine.disableVideo();
+                    // _engine.destroyCustomEncodedVideoTrack(0);
+                    // _engine.stopDirectCdnStreaming();
+                    _engine.disableAudio();
+
+                    Navigator.pop(context);
+                  },
+                  child: Icon(Icons.call_end)),
             ],
           ),
         ),
