@@ -35,6 +35,7 @@ class _MyAppState extends State<voiceCall> {
 // Build UI
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       scaffoldMessengerKey: scaffoldMessengerKey,
@@ -54,7 +55,7 @@ class _MyAppState extends State<voiceCall> {
                 height: 60,
               ),
               CircleAvatar(
-                radius: 80,
+                radius: 70,
                 backgroundImage: NetworkImage(_auth.currentUser!.photoURL !=
                         null
                     ? "$_auth.currentUser.PhotoUrl"
@@ -63,9 +64,9 @@ class _MyAppState extends State<voiceCall> {
               SizedBox(
                 height: 20,
               ),
-              Container(height: 60, child: Center(child: _status())),
+              Container(height: 180, child: Center(child: _status())),
               Container(
-                height: 700,
+                height: size.height / 2.5,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
