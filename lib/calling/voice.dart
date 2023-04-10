@@ -38,47 +38,54 @@ class _MyAppState extends State<voiceCall> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       scaffoldMessengerKey: scaffoldMessengerKey,
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
       home: Scaffold(
           appBar: AppBar(
             title: Center(child: const Text('Voice Calling')),
           ),
-          body: Padding(
+          body: ListView(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-            child: Row(
-              children: [
-                // Status text
-                Container(height: 60, child: Center(child: _status())),
-                // Container(height: 6, child: Center(child: _status())),
-                // Button Row
-                CircleAvatar(
-                  radius: 28,
-                  backgroundImage: NetworkImage(_auth.currentUser != null
-                      ? "$_auth.currentUser.PhotoUrl"
-                      : "https://imgs.search.brave.com/05TBeNcAKK_r3R0LB3pKtpxtWDXWh8ivakrk0aYd5_I/rs:fit:322:294:1/g:ce/aHR0cHM6Ly9zdGVl/bWl0aW1hZ2VzLmNv/bS9EUW1XQW9lVXBR/RFRaaUNoSjUxTFRG/U0NBMndWcUEybWpZ/WlVUWE5teldVS1pO/Qi9kb2N1Ym90Lmdp/Zg.gif"),
-                ),
-                Container(
-                  height: 1200,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      // Expanded(
-                      //   child: ElevatedButton(
-                      //     child: const Text("Join"),
-                      //     onPressed: () => {join()},
-                      //   ),
-                      // ),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: ElevatedButton(
-                          child: const Text("Leave"),
-                          onPressed: () => {leave()},
-                        ),
+            children: [
+              // Status text
+              // Container(height: 60, child: Center(child: _status())),
+              // Container(height: 6, child: Center(child: _status())),
+              // Button Row
+              SizedBox(
+                height: 60,
+              ),
+              CircleAvatar(
+                radius: 80,
+                backgroundImage: NetworkImage(_auth.currentUser!.photoURL !=
+                        null
+                    ? "$_auth.currentUser.PhotoUrl"
+                    : "https://imgs.search.brave.com/05TBeNcAKK_r3R0LB3pKtpxtWDXWh8ivakrk0aYd5_I/rs:fit:322:294:1/g:ce/aHR0cHM6Ly9zdGVl/bWl0aW1hZ2VzLmNv/bS9EUW1XQW9lVXBR/RFRaaUNoSjUxTFRG/U0NBMndWcUEybWpZ/WlVUWE5teldVS1pO/Qi9kb2N1Ym90Lmdp/Zg.gif"),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Container(height: 60, child: Center(child: _status())),
+              Container(
+                height: 700,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    // Expanded(
+                    //   child: ElevatedButton(
+                    //     child: const Text("Join"),
+                    //     onPressed: () => {join()},
+                    //   ),
+                    // ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: ElevatedButton(
+                        child: const Text("Leave"),
+                        onPressed: () => {leave()},
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           )),
     );
   }
@@ -101,7 +108,7 @@ class _MyAppState extends State<voiceCall> {
             statusText,
             style: TextStyle(fontSize: 25),
           ),
-          Text("data")
+          // Text("data")
         ],
       ),
     );
