@@ -31,25 +31,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   // int _counter = 0;
 
-  final List<String> _gender = ['Male', 'Felmale', 'Other'];
-  var _fromGender = 'Male';
-  final List<String> _injury = ['Yes', 'No'];
-  var _fromInjury = 'Yes';
-  // int lines = 4;
-
-  final _genderController = TextEditingController();
-  final _ageController = TextEditingController();
-  final _heightController = TextEditingController();
-  final _bmiController = TextEditingController();
-  final _weightController = TextEditingController();
-  final _currMCController = TextEditingController();
-  final _currMCController1 = TextEditingController();
-  final _currMCController2 = TextEditingController();
-  final _currMCController3 = TextEditingController();
-  final _currMCController4 = TextEditingController();
-  final _currMCController5 = TextEditingController();
-  final _surgController = TextEditingController();
-  final _medicInsController = TextEditingController();
   DateTime? _visitDate;
   TimeOfDay? _startTime;
   TimeOfDay? _endTime;
@@ -160,53 +141,60 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             SizedBox(
               height: 20,
+              // width: 10,
             ),
-            Row(
-              children: <Widget>[
-                SizedBox(
-                  width: 60,
-                ),
-                Expanded(
-                  child: Text(
-                    _visitDate == null
-                        ? 'Select a visit date'
-                        : 'Visit Date: ${_visitDate!.day}/${_visitDate!.month}/${_visitDate!.year}',
-                    style: TextStyle(
-                      fontSize: 21,
+            Padding(
+              padding: const EdgeInsets.only(right: 15),
+              child: Row(
+                children: <Widget>[
+                  SizedBox(
+                    width: 40,
+                  ),
+                  Expanded(
+                    child: Text(
+                      _visitDate == null
+                          ? 'Select a visit date'
+                          : 'Visit Date: ${_visitDate!.day}/${_visitDate!.month}/${_visitDate!.year}',
+                      style: TextStyle(
+                        fontSize: 21,
+                      ),
                     ),
                   ),
-                ),
-                IconButton(
-                  icon: Icon(Icons.calendar_today),
-                  onPressed: () {
-                    _selectDate(context);
-                  },
-                ),
-              ],
+                  IconButton(
+                    icon: Icon(Icons.calendar_today),
+                    onPressed: () {
+                      _selectDate(context);
+                    },
+                  ),
+                ],
+              ),
             ),
             SizedBox(
               height: 20,
             ),
-            Row(
-              children: <Widget>[
-                SizedBox(
-                  width: 60,
-                ),
-                Expanded(
-                  child: Text(
-                    _startTime == null
-                        ? 'Select start time'
-                        : 'Start Time: ${_formatTimeOfDay(_startTime!)}',
-                    style: TextStyle(fontSize: 21),
+            Padding(
+              padding: const EdgeInsets.only(right: 15.0),
+              child: Row(
+                children: <Widget>[
+                  SizedBox(
+                    width: 40,
                   ),
-                ),
-                IconButton(
-                  icon: Icon(Icons.access_time),
-                  onPressed: () {
-                    _selectStartTime(context);
-                  },
-                ),
-              ],
+                  Expanded(
+                    child: Text(
+                      _startTime == null
+                          ? 'Select start time'
+                          : 'Start Time: ${_formatTimeOfDay(_startTime!)}',
+                      style: TextStyle(fontSize: 21),
+                    ),
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.access_time),
+                    onPressed: () {
+                      _selectStartTime(context);
+                    },
+                  ),
+                ],
+              ),
             ),
             SizedBox(
               height: 20,

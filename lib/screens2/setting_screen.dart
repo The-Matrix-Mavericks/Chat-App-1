@@ -11,6 +11,8 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:chat/showProfile.dart/ShowProfile.dart';
 import 'package:uuid/uuid.dart';
 
+import 'aboutUs.dart';
+
 class SettingScreen1 extends StatefulWidget {
   @override
   State<SettingScreen1> createState() => _SettingScreen1State();
@@ -305,7 +307,14 @@ class _SettingScreen1State extends State<SettingScreen1> {
               height: 20,
             ),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => AboutUsScreen(),
+                  ),
+                );
+              },
               leading: Container(
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
