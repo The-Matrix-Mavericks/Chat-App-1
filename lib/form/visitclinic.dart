@@ -160,53 +160,60 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             SizedBox(
               height: 20,
+              // width: 10,
             ),
-            Row(
-              children: <Widget>[
-                SizedBox(
-                  width: 60,
-                ),
-                Expanded(
-                  child: Text(
-                    _visitDate == null
-                        ? 'Select a visit date'
-                        : 'Visit Date: ${_visitDate!.day}/${_visitDate!.month}/${_visitDate!.year}',
-                    style: TextStyle(
-                      fontSize: 21,
+            Padding(
+              padding: const EdgeInsets.only(right: 15),
+              child: Row(
+                children: <Widget>[
+                  SizedBox(
+                    width: 40,
+                  ),
+                  Expanded(
+                    child: Text(
+                      _visitDate == null
+                          ? 'Select a visit date'
+                          : 'Visit Date: ${_visitDate!.day}/${_visitDate!.month}/${_visitDate!.year}',
+                      style: TextStyle(
+                        fontSize: 21,
+                      ),
                     ),
                   ),
-                ),
-                IconButton(
-                  icon: Icon(Icons.calendar_today),
-                  onPressed: () {
-                    _selectDate(context);
-                  },
-                ),
-              ],
+                  IconButton(
+                    icon: Icon(Icons.calendar_today),
+                    onPressed: () {
+                      _selectDate(context);
+                    },
+                  ),
+                ],
+              ),
             ),
             SizedBox(
               height: 20,
             ),
-            Row(
-              children: <Widget>[
-                SizedBox(
-                  width: 60,
-                ),
-                Expanded(
-                  child: Text(
-                    _startTime == null
-                        ? 'Select start time'
-                        : 'Start Time: ${_formatTimeOfDay(_startTime!)}',
-                    style: TextStyle(fontSize: 21),
+            Padding(
+              padding: const EdgeInsets.only(right: 15.0),
+              child: Row(
+                children: <Widget>[
+                  SizedBox(
+                    width: 40,
                   ),
-                ),
-                IconButton(
-                  icon: Icon(Icons.access_time),
-                  onPressed: () {
-                    _selectStartTime(context);
-                  },
-                ),
-              ],
+                  Expanded(
+                    child: Text(
+                      _startTime == null
+                          ? 'Select start time'
+                          : 'Start Time: ${_formatTimeOfDay(_startTime!)}',
+                      style: TextStyle(fontSize: 21),
+                    ),
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.access_time),
+                    onPressed: () {
+                      _selectStartTime(context);
+                    },
+                  ),
+                ],
+              ),
             ),
             SizedBox(
               height: 20,
