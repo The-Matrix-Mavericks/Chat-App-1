@@ -102,7 +102,7 @@ class _MyAppState extends State<voiceCall> {
       statusText = 'Calling With --> ${_auth.currentUser!.displayName}';
 
     return Padding(
-      padding: const EdgeInsets.only(top: 30),
+      padding: const EdgeInsets.only(top: 20),
       child: Column(
         children: [
           Text(
