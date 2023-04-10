@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '../form/visitclinic.dart';
+
 // ignore: must_be_immutable
 class HomeScreen1 extends StatefulWidget {
   @override
@@ -159,7 +161,7 @@ class _HomeScreen1State extends State<HomeScreen1> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Medicalform(),
+                      builder: (context) => ClinicVisitForm(),
                     ),
                   );
                 },

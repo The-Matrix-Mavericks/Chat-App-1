@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:chat/Authenticate/Methods.dart';
 import 'package:chat/form/form.dart';
+import 'package:chat/screens2/privacy.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -194,7 +195,7 @@ class _SettingScreen1State extends State<SettingScreen1> {
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
-                  CupertinoIcons.person,
+                  Icons.person_3_outlined,
                   color: Colors.blue,
                   size: 35,
                 ),
@@ -220,7 +221,7 @@ class _SettingScreen1State extends State<SettingScreen1> {
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
-                  Icons.notifications_none_outlined,
+                  Icons.notifications_active,
                   color: Colors.deepPurple,
                   size: 35,
                 ),
@@ -238,7 +239,14 @@ class _SettingScreen1State extends State<SettingScreen1> {
               height: 20,
             ),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => PrivacyScreen(),
+                  ),
+                );
+              },
               leading: Container(
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
@@ -246,13 +254,13 @@ class _SettingScreen1State extends State<SettingScreen1> {
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
-                  Icons.privacy_tip_outlined,
+                  Icons.privacy_tip,
                   color: Colors.indigo,
                   size: 35,
                 ),
               ),
               title: Text(
-                "Privacy",
+                "Privacy Policy",
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 20,
@@ -279,13 +287,13 @@ class _SettingScreen1State extends State<SettingScreen1> {
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
-                  Icons.settings_suggest_outlined,
+                  Icons.medical_information,
                   color: Colors.green,
                   size: 35,
                 ),
               ),
               title: Text(
-                "General",
+                "Medical Form",
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 20,
