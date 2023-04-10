@@ -88,7 +88,7 @@ class _HomeScreen1State extends State<HomeScreen1> {
                 CircleAvatar(
                   radius: 28,
                   backgroundImage: NetworkImage(userMap?['url'] != null
-                      ? userMap?['url']
+                      ? "${userMap?['url']}"
                       : "https://imgs.search.brave.com/05TBeNcAKK_r3R0LB3pKtpxtWDXWh8ivakrk0aYd5_I/rs:fit:322:294:1/g:ce/aHR0cHM6Ly9zdGVl/bWl0aW1hZ2VzLmNv/bS9EUW1XQW9lVXBR/RFRaaUNoSjUxTFRG/U0NBMndWcUEybWpZ/WlVUWE5teldVS1pO/Qi9kb2N1Ym90Lmdp/Zg.gif"),
                 )
               ],
