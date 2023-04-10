@@ -96,6 +96,7 @@ class _MyAppState extends State<videoCall> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
       home: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
