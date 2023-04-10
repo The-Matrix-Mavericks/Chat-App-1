@@ -36,10 +36,11 @@ class _MyAppState extends State<voiceCall> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       scaffoldMessengerKey: scaffoldMessengerKey,
       home: Scaffold(
           appBar: AppBar(
-            title: const Text('Voice Calling'),
+            title: Center(child: const Text('Voice Calling')),
           ),
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
