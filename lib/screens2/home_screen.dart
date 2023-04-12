@@ -3,6 +3,7 @@ import 'package:chat/form/form.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../form/visitclinic.dart';
 
@@ -87,7 +88,12 @@ class _HomeScreen1State extends State<HomeScreen1> {
                   _auth.currentUser != null
                       ? "Hello, ${_auth.currentUser!.displayName}"
                       : "Hello, User",
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+                  // style: GoogleFonts.sacramento(),
+                  style: GoogleFonts.acme(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w300,
+                      // fontStyle: FontStyle.italic,
+                      color: Colors.black),
                 ),
                 CircleAvatar(
                   radius: 38,
@@ -223,10 +229,11 @@ class _HomeScreen1State extends State<HomeScreen1> {
           Padding(
             padding: EdgeInsets.only(left: 15),
             child: Text(
-              "What are your symptoms?",
-              style: TextStyle(
-                  fontSize: 23,
-                  fontWeight: FontWeight.w500,
+              'What are your symptoms?',
+              style: GoogleFonts.lato(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w400,
+                  // fontStyle: FontStyle.italic,
                   color: Colors.black),
             ),
           ),
@@ -359,11 +366,14 @@ class _HomeScreen1State extends State<HomeScreen1> {
           ),
           Center(
             child: TextButton(
-              child: Text("Tap here to chat 💬",
-                  style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blueAccent)),
+              child: Text(
+                "Tap here to chat 💬",
+                style: GoogleFonts.caveat(
+                    fontSize: 35,
+                    fontWeight: FontWeight.w500,
+                    // fontStyle: FontStyle.italic,
+                    color: Colors.blue),
+              ),
               onPressed: () {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (_) => Bot()));
