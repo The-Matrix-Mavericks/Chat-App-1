@@ -131,3 +131,71 @@ class _LoginScreen1State extends State<LoginScreen1> {
     );
   }
 }
+
+var grp1 = {
+  'Fungal infection': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0],
+  'Allergy': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0],
+  'GERD': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0],
+};
+var grp2 = {
+  'Chronic cholestasis': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0],
+  'Drug Reaction': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0],
+  'Peptic ulcer diseae': [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0],
+  'AIDS':[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0]
+};
+var grp4 = {
+  'Diabetes': [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0],
+  'Gastroenteritis': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0],
+  'Varicose veins': [1, 2],
+  'Arthritis': [1, 2],
+  'Osteoarthristis': [1, 2],
+  'Hypoglycemia': [1, 2],
+  'Hyperthyroidism': [1, 2],
+  'Hypothyroidism': [1, 2],
+};
+var grp5 = {
+  '(vertigo) Paroymsal  Positional Vertigo': [1, 2, 3, 4],
+  'Acne': [1, 2, 3],
+  'Urinary tract infection': [1, 2],
+  'Impetigo': [1, 2],
+  'Psoriasis': [1, 2],
+};
+var grp6 = {
+  'Hypertension ': [1, 2, 3, 4],
+  'Migraine': [1, 2, 3],
+  'Cervical spondylosis': [1, 2],
+  'Paralysis (brain hemorrhage)': [1, 2],
+};
+var grp3 = {
+  'Jaundice': [1, 2, 3, 4],
+  'Malaria': [1, 2, 3],
+  'Chicken pox': [1, 2],
+  'Typhoid': [1, 2],
+  'Dengue': [1, 2],
+};
+var grp7 = {
+  'hepatitis A': [1, 2, 3, 4],
+  'Hepatitis B': [1, 2, 3],
+  'Hepatitis C': [1, 2],
+  'Hepatitis D': [1, 2],
+  'Hepatitis E': [1, 2],
+  'Alcoholic hepatitis': [1, 2],
+};
+var grp8 = {
+  'Pneumonia': [1, 2, 3, 4],
+  'Common Cold': [1, 2, 3],
+  'Tuberculosis': [1, 2]
+};
+var grp9 = {
+  'Dimorphic hemmorhoids(piles)': [1, 2, 3, 4],
+  'Heart attack': [1, 2]
+};
